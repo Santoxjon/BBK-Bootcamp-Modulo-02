@@ -7,6 +7,6 @@
 let functions = require("./functions.js");
 let more_functions = require("./morefunctions.js");
 
-let array = Array.from({ length: 20 }, (_, i) => i + 1);
+let array = Array.from({ length: 20 }, (_, i) => i);
 functions.showArray(array);
 more_functions.showArrayBackwards(array);
