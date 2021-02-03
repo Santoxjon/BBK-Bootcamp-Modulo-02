@@ -6,10 +6,10 @@ let functions = require("./functions");
 
 let shop = [
     {
-        name: "Pescadería",
+        name: "Pescaderia",
         products: [
             {
-                name: "Salmón",
+                name: "Salmon",
                 price: 6.95,
                 stock: 10
             },
@@ -26,7 +26,7 @@ let shop = [
         ]
     },
     {
-        name: "Carnicería",
+        name: "Carniceria",
         products: [
             {
                 name: "Hamburguesa de Pavo",
@@ -46,7 +46,7 @@ let shop = [
         ]
     },
     {
-        name: "Frutería",
+        name: "Fruteria",
         products: [
             {
                 name: "Manzana Golden",
@@ -67,9 +67,11 @@ let shop = [
     }
 ];
 
+let cart = [];
+
 // Index
 SERVIDOR.get("/", function (req, res) {
-    let str = "<p><a href='/pescaderia'>Pescadería</a></p><p><a href='/carniceria'>Carnicería</a></p><p><a href='/fruteria'>Frutería</a></p>"
+    let str = "<h1>Tienda</h1><p><a href='/pescaderia'>Pescadería</a></p><p><a href='/carniceria'>Carnicería</a></p><p><a href='/fruteria'>Frutería</a></p><hr><p><a href='/cesta'>VER LA CESTA</a></p>"
     res.send(str);
 });
 
@@ -79,8 +81,8 @@ SERVIDOR.get("/pescaderia", function (req, res) {
     res.send(str);
 });
 SERVIDOR.get("/pescaderia/:name/:stock", function (req, res) {
-
-    res.send(str);
+    let dep = shop[0];
+    functions.addToCart(dep, req, res, cart);
 });
 
 // Carnicería
@@ -89,8 +91,8 @@ SERVIDOR.get("/carniceria", function (req, res) {
     res.send(str);
 });
 SERVIDOR.get("/carniceria/:name/:stock", function (req, res) {
-
-    res.send(str);
+    let dep = shop[1];
+    functions.addToCart(dep, req, res, cart);
 });
 
 // Frutería
@@ -99,6 +101,40 @@ SERVIDOR.get("/fruteria", function (req, res) {
     res.send(str);
 });
 SERVIDOR.get("/fruteria/:name/:stock", function (req, res) {
+    let dep = shop[2];
+    functions.addToCart(dep, req, res, cart);
+});
 
+// Error 
+SERVIDOR.get("/error/:name", function (req, res) {
+    let str = `<h1>ERROR</h1><p>No hay stock suficiente para ${req.params.name}</p><p><a href='/'>Volver</a></p>`;
     res.send(str);
+});
+
+// Cesta
+SERVIDOR.get("/cesta", function (req, res) {
+    let str = "<h1>Carro de la compra</h1><ul style='font-size: 1.75em;'>";
+    cart.forEach(product => {
+        str += `<li>${product}</li>`;
+    });
+    str += "</ul>";
+    str += cart.length > 0 ? "<p><a href='/pay'>FINALIZAR COMPRA</a></p>" : "<p>Cesta vacía</p>";
+    res.send(str);
+});
+
+// Finalizar compra
+SERVIDOR.get("/pay", function (req, res) {
+    if (cart.length > 0) {
+        cart = [];
+        shop.forEach(dep => {
+            dep.products.forEach(product => {
+                product.stock = 10;
+            });
+        });
+        let str = "<h1>COMPRA FINALIZADA</h1><p>Gracias por comprar con nosotros</p><p><a href='/'>Volver a la tienda</a></p>"
+        res.send(str);
+    }
+    else {
+        res.redirect('/');
+    }
 });
