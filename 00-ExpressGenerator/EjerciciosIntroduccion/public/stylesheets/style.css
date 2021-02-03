@@ -1,3 +1,7 @@
+* {
+  font-size: xx-large;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +9,28 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 2px solid rgb(41, 41, 83);
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+thead tr:first-child {
+  background-color: rgb(41, 41, 83);
+  color: #fffeee;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  color: rgb(41, 41, 83);
 }

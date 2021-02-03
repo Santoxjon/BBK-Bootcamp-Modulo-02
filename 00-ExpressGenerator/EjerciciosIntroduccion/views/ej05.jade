@@ -1,5 +1,6 @@
 extends layout
 
 block content
-  h1 Hola Mundo
-  h2 Desde Express :D
+  h1 Subject 001
+  each val, key in human
+    p #{key}: #{val}

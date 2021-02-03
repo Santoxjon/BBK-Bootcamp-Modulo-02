@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1 Hola Mundo
-  h2 Desde Express :D
+  h1 Almacén:
+  each dep in workshop
+    p: #[a(href='/ejEXTRA01/#{dep.name}') #{dep.name}]
+  hr
+  p: #[a(href='/ejEXTRA01/cesta') VER CESTA]

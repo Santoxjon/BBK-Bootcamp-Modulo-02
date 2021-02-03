@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1 Hola Mundo
-  h2 Desde Express :D
+  h1 Lista de personas
+  if person
+    p #{person}
+  else
+    each person in people
+      p #{person}

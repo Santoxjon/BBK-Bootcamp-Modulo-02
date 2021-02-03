@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 CESTA DE LA COMPRA
+    ul
+      each product in cart
+        li #{product}  
+  if (cart.length > 0)
+    p: #[a(href='./pay') Finalizar pedido]
+  hr
+  p: #[a(href='./') Volver al inicio]

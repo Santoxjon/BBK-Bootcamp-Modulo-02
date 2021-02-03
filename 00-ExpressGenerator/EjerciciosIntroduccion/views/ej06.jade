@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1 Hola Mundo
-  h2 Desde Express :D
+  h1 Lista de los BootCampers 2021
+  each camper in campers
+    p #{camper}
+  

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 #{dep.name}
+  table
+    thead
+      tr
+        th Nombre
+        th Stock
+        th Precio
+    tbody
+      each product in dep.products
+        tr
+          td #{product.name}
+          td #{product.stock}
+          td #{product.price}
+  p: #[a(href='./') Volver atrás]
