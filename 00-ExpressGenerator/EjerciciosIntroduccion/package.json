@@ -2,8 +2,9 @@
   "name": "ejerciciosintroduccion",
   "version": "0.0.0",
   "private": true,
+  "main": "./bin/www",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

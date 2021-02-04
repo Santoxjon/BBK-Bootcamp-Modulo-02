@@ -8,10 +8,14 @@ block content
         th Nombre
         th Stock
         th Precio
+        th
+        th
     tbody
       each product in dep.products
         tr
           td #{product.name}
           td #{product.stock}
           td #{product.price}
+          td: input(type="number", name="quant_#{product.name}",id="quant_#{product.name}", value="0", min="0", max="#{product.stock}")
+          td: #[a(href='./#{dep.name}/#{product.name}/0') Añadir a la cesta]
   p: #[a(href='./') Volver atrás]

@@ -1,9 +1,10 @@
 * {
   font-size: xx-large;
+  user-select: none;
 }
 
 body {
-  padding: 50px;
+  padding: 20px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -13,7 +14,7 @@ a {
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 60vw;
 }
 
 table, th, td {
@@ -25,7 +26,7 @@ td, th {
   padding: 8px;
 }
 
-thead tr:first-child {
+thead tr {
   background-color: rgb(41, 41, 83);
   color: #fffeee;
 }
@@ -33,4 +34,22 @@ thead tr:first-child {
 tr:nth-child(even) {
   background-color: #dddddd;
   color: rgb(41, 41, 83);
+}
+
+tbody tr {
+  transition: background 0.2s ease-out;
+}
+
+tbody tr:hover {
+  background-color: bisque;
+}
+
+input[type=number] {
+  margin: 0 5px;
+  width: 50%;
+}
+
+#cesta {
+  width: 35vw;
+  min-width: 625px;
 }

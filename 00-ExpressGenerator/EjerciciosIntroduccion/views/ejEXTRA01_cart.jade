@@ -2,10 +2,22 @@ extends layout
 
 block content
   h1 CESTA DE LA COMPRA
-    ul
-      each product in cart
-        li #{product}  
   if (cart.length > 0)
+    - let total_price = 0;
+    table#cesta
+      thead
+        tr
+          th Nombre
+          th Cantidad
+          th Precio
+      tbody
+        each product in cart
+          tr
+            td #{product.name}
+            td #{product.quant}
+            td #{product.price} € / unidad
+            - total_price += (product.quant * +product.price);
+    p Precio total: #{total_price}€
     p: #[a(href='./pay') Finalizar pedido]
   hr
   p: #[a(href='./') Volver al inicio]
