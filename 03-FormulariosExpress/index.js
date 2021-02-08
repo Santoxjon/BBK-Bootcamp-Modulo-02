@@ -49,10 +49,7 @@ app.get('/dejar-animal', function (req, res) {
 });
 
 app.get('/adoptar', function (req, res) {
-    data.animals.forEach((animal, index) => {
-        if (req.query.name === animal.name) {
-            data.animals.splice(index, 1);
-        }
-    });
+    let index = data.animals.findIndex(animal => animal.name === req.query.name);
+    if (index !== -1) data.animals.splice(index, 1);
     res.redirect("/");
 });

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+* {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+}
+
+body * {
+  font-size: large;
+}
+
+body {
+  padding: 20px 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 300%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 30vw;
+  min-width: 550px;
+}
+
+table, th, td {
+  border: 2px solid rgb(41, 41, 83);
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+thead tr {
+  background-color: rgb(41, 41, 83);
+  color: #fffeee;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  color: rgb(41, 41, 83);
+}
+
+tbody tr {
+  transition: background 0.2s ease-out;
+}
+
+tbody tr:hover {
+  background-color: bisque;
+}
+
+input[type=text] {
+  display: block;
+  min-width: 292px;
+  margin-bottom: 10px;
+}
+
+input[type=submit]:not(#adoptar) {
+  min-width: 300px;
+}
+
+.table-btn {
+  min-width: 100%;
+  
+}

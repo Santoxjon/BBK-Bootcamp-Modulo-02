@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar personas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>Editar persona</h1>
+    <form action="javascript:editperson()">
+        <input type="text" id="name" name="name" required placeholder="Nombre">
+        <input type="text" id="lastname" name="lastname" required placeholder="Apellido">
+        <input type="number" id="age" name="age" required placeholder="Edad" min="0" max="99">
+        <input type="submit" value="Modificar">
+    </form>
+
+    <script>
+        function editperson() {
+            let name = document.getElementById("name").value;
+            let lastname = document.getElementById("lastname").value;
+            let age = document.getElementById("age").value;
+
+            let data = {name: name, lastname: lastname, age: age};
+
+            let fetchData = {
+                method: 'PUT',
+                headers: { 'Content-Type': "application/json" },
+                body: JSON.stringify(data)
+            }
+            fetch('/people/edit', fetchData)
+                .then((res) => res.json())
+                .then(data => {
+                    location.replace("/people");
+                });
+        }
+    </script>
+</body>
+
+</html>

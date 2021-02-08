@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  table
+    thead
+      tr
+        th Nombre
+        th Edad
+        th Tipo
+        th 
+        th
+    tbody
+      each animal in animals
+        tr
+          td #{animal.name}
+          td #{animal.age}
+          td #{animal.type}
+          td: a(href="/edit-animal?name=#{animal.name}&age=#{animal.age}&type=#{animal.type}") Editar
+          //- td: a(href="/edit-animal") Editar
+          td
+            form(method="get", action="/adoptar")
+              input(type="hidden", name="name", value="#{animal.name}")
+              input(type="submit", value="Adoptar", class="table-btn")
+  hr
+  p #[a(href="/dejar-animal") DEJAR ANIMAL]
