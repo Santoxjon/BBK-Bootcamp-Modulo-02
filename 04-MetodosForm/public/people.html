@@ -6,9 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>People</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <a href="/" class="go-back">Volver</a>
     <script>
         let fetchData = {
             method: 'GET',
@@ -18,9 +33,17 @@
             .then((res) => res.json())
             .then(data => {
                 data.forEach(person => {
-                    let p = document.createElement('p');
-                    p.textContent = person.name + " | " +person.lastname + " | " +person.age + " | ";
-                    document.querySelector('body').append(p);
+                    let tr = document.createElement('tr');
+                    let name_td = document.createElement('td');
+                    let lastname_td = document.createElement('td');
+                    let age_td = document.createElement('td');
+                    name_td.textContent = person.name;
+                    lastname_td.textContent = person.lastname;
+                    age_td.textContent = person.age;
+                    document.querySelector('tbody').append(tr);
+                    tr.append(name_td);
+                    tr.append(lastname_td);
+                    tr.append(age_td);
                 });
             });
     </script>

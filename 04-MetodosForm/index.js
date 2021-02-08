@@ -43,5 +43,15 @@ app.put('/people/edit', (req, res) => {
     let index = data.people.findIndex(person => person.name === req.body.name);
     data.people[index].lastname = req.body.lastname;
     data.people[index].age = req.body.age;
-    res.send(["Al toque"]);
+    res.send(["Editado con éxito"]);
+});
+
+app.get('/people/delete', (req, res) => {
+    res.sendFile(path.join(__dirname+'/public/delete-person.html'));
+});
+
+app.delete('/people/delete', (req, res) => {
+    let index = data.people.findIndex(person => person.name === req.body.name);
+    data.people.splice(index, 1);
+    res.send(['Eliminado con éxito']);
 });
