@@ -43,6 +43,7 @@ form {
     align-items: center;
     border-radius: 0 0 3px 3px;
     padding-bottom: 15px;
+    width: 570px;
 }
 
 input:not(:last-child) {
