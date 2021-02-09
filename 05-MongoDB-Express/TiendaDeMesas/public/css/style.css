@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+body>div {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    background-color: #fffeee;
+}
+
+header {
+    background-color: rgb(128, 99, 155);
+    color: #fffeee;
+}
+
+header, main, footer {
+    padding: 5px 20px;
+}
+
+#tables_main {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.table-card {
+    margin: 3px 3px;
+    background-color: rgb(216, 201, 230);
+    border-radius: 3px;
+    padding: 0 15px;
+}
+
+.table-card  strong, p{
+    font-size: 1.1em;
+}

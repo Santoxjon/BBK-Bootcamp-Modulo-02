@@ -1,29 +1,40 @@
 const express = require('express');
 const mongodb = require('mongodb');
-
-const app = express();
-
+const path = require('path');
 let MongoClient = mongodb.MongoClient;
 
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); //POST
+
+
 let db;
-MongoClient.connect("mongodb://127.0.0.1:27017", function (err, client) {
+// MongoClient.connect("mongodb://192.168.0.27:27017", function (err, client) { // Local
+MongoClient.connect("mongodb://192.168.0.27:27017", function (err, client) { // Remote
     if (err !== null) {
         console.log(err);
     } else {
-        db = client.db("prueba");
+        db = client.db("tableShop");
     }
 });
 
-app.get("/", function (req, res) {
-    db.collection("naves").find().toArray(function (err, datos) {
+app.get("/api/tables", function (req, res) {
+    res.sendFile(path.join(__dirname+'/public/tables.html'));
+});
+
+app.get("/api/tables-list", function (req, res) {
+    db.collection("table").find().toArray(function (err, data) {
         if (err != null) {
             console.log(err);
             res.send({ mensaje: "error: " + err });
         } else {
-            console.log(datos);
-            res.send(datos);
+            res.json(data);
         }
     });
 });
 
-app.listen(3000);
+
+app.listen(port);
