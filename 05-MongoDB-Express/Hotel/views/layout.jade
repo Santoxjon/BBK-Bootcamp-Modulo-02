@@ -2,6 +2,17 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    script(src='https://kit.fontawesome.com/122a23edb6.js' crossorigin='anonymous')
   body
-    block content
+    div#site
+      header 
+        h1 🏨 HOTEL Blue Scape
+        a(href="/" class="goback")
+          span 
+            i.fas.fa-long-arrow-alt-left
+          | Volver al inicio
+      main
+        block content
+      footer
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dicta fugiat dolor ullam voluptatem similique sequi mollitia libero eveniet aliquam molestiae necessitatibus officiis cum omnis consequuntur veritatis magni, repellat nemo?

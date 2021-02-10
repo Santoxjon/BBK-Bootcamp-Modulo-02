@@ -1,8 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #7b7d7e;
 }
 
-a {
-  color: #00B7FF;
+#site {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  max-width: 1200px;
+}
+
+header, main, footer {
+  padding: 5px 25px;
+}
+
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5C6269;
+  color: #fffeee;
+}
+
+main {
+  background-color: #D5D7BB;
+}
+
+footer {
+  font-size: .75em;
+}
+
+.goback {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #926052;
+  border-radius: 10px;
+  color: #D5D7BB;
+  transition: .35s;
+}
+
+.goback:hover {
+  background-color: #D5D7BB;
+  color: #926052;
+}
+
+.goback span {
+  margin-right: -15px;
+  opacity: 0;
+  transition: margin .35s, opacity .3s;
+}
+
+.goback:hover>span {
+  opacity: 1;
+  margin-right: 10px;
+}
+
+#main_index {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.index-link{
+  text-decoration: none;
+  color: #5C6269;
+  background-color: #86973D;
+  padding: 50px;
+  border-radius: 20px;
+  font-size: 2em;
+  width: 30%;
+  text-align: center;
+  transition: .3s;
+}
+
+.index-link:hover {
+  background-color: #B9C278;
+  color: #5C6269;
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 1rem #926052);
+}
+
+#main_clients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#new_client {
+  margin-top: 8px;
+  padding: 15px 0;
+  background-color: #86973D;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 2em;
+}
+
+hr {
+  width: 80%;
+  margin-bottom: 15px;
+  border-color: #5C6269;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #cacaca;
+}
+tr:nth-child(odd) {
+  background-color:#e6e4e4;
+}
+
+thead tr{
+  background-color: #5C6269 !important;
+  color: #fffeee;
+}
+
+.literally-nothing {
+  color: #926052;
+  color: #5C6269;
+  color: #86973D;
+  color: #B9C278;
+  color: #D5D7BB;
 }

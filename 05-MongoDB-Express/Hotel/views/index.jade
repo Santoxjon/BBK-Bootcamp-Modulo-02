@@ -1,5 +1,6 @@
 extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+block content 
+  div#main_index
+    a(href="/clients" title="title").index-link GESTIÓN CLIENTES
+    a(href="/rooms" title="title").index-link GESTIÓN HABITACIONES
