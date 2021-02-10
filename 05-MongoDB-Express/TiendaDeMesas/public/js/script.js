@@ -1,8 +1,6 @@
-switch (window.location.pathname) {
-    case "/api/tables":
-        console.log(window.location.pathname);
-        getTables();
-        break;
+if (window.location.pathname === "/api/tables") {
+    console.log(window.location.pathname);
+    getTables();
 }
 
 function getTables() {
@@ -19,7 +17,7 @@ function getTables() {
                 div.className = "table-card";
                 for (key in table) {
                     let strong = document.createElement("strong");
-                    strong.textContent = key+": ";
+                    strong.textContent = key + ": ";
 
                     let p = document.createElement("p");
                     p.textContent = table[key];
@@ -27,7 +25,33 @@ function getTables() {
                     p.prepend(strong);
                     div.append(p)
                 }
-                main.append(div);
+                main.prepend(div);
             });
+        });
+}
+
+function updateTables() {
+    let color = "/api/modify/" + document.getElementById("color").value;
+    let fetchData = {
+        method: 'PUT',
+        headers: { 'Content-Type': "application/json" }
+    }
+    fetch(color, fetchData)
+        .then((res) => res.json())
+        .then(() => {
+            location.replace("/api/tables");
+        });
+}
+
+function deleteTables() {
+    let legs = "/api/delete/" + document.getElementById("legs").value;
+    let fetchData = {
+        method: 'DELETE',
+        headers: { 'Content-Type': "application/json" }
+    }
+    fetch(legs, fetchData)
+        .then((res) => res.json())
+        .then(() => {
+            location.replace("/api/tables");
         });
 }

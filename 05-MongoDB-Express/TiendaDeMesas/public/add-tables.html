@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir mesas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>Tienda de mesas</h1>
+            <a href="/">Volver al inicio</a>
+        </header>
+        <main class="main-form">
+            <form action="/api/add" method="post">
+                <h2>Añadir nueva mesa con los datos indicados</h2>
+                <input type="text" name="size" required placeholder="Dimensiones 'n' x 'n'">
+                <input type="text" name="color" required placeholder="Color">
+                <input type="text" name="material" required placeholder="Material">
+                <input type="number" name="legs" min="1" required placeholder="Patas">
+                <input type="submit" value="Guardar mesa">
+            </form>
+        </main>
+        <footer>
+        </footer>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
