@@ -1,6 +1,8 @@
 extends layout
 
 block content 
-  div#main_index
+  #main_index
     a(href="/clients" title="title").index-link GESTIÓN CLIENTES
     a(href="/rooms" title="title").index-link GESTIÓN HABITACIONES
+    script.
+      document.getElementById("goback").style.visibility = "hidden"

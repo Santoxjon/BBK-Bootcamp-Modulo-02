@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    #main_rooms
+        h2 Habitaciones
+        hr
+        #rooms
+            each room in rooms
+                if !room.condition
+                    .room.free
+                        p Número: #{room.number}
+                        p Estado: Vacia
+                        form(action='/rooms/book' method='POST')
+                            input(type='hidden', name='room', value=room._id)
+                            input(type="date", name="checkin_date", required)
+                            select(name='client', required)
+                                option(value="", hidden) 
+                                each client in clients
+                                    option(value=client._id)=client.dni
+                            input(type='submit' value='Check In')
+                else 
+                    .room.booked
+                        p Número: #{room.number}
+                        p Estado: Ocupada
+                        form(action='javascript:checkoutRoom()')
+                            input(type="hidden", id="room_id", value=room._id)
+                            input(type='submit', value='Check Out')
+    script(src="/javascripts/script.js")

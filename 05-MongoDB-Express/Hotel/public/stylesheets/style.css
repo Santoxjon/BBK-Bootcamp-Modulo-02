@@ -34,7 +34,7 @@ footer {
   font-size: .75em;
 }
 
-.goback {
+#goback {
   text-decoration: none;
   padding: 10px 15px;
   background-color: #926052;
@@ -43,18 +43,18 @@ footer {
   transition: .35s;
 }
 
-.goback:hover {
+#goback:hover {
   background-color: #D5D7BB;
   color: #926052;
 }
 
-.goback span {
+#goback span {
   margin-right: -15px;
   opacity: 0;
   transition: margin .35s, opacity .3s;
 }
 
-.goback:hover>span {
+#goback:hover>span {
   opacity: 1;
   margin-right: 10px;
 }
@@ -67,7 +67,7 @@ footer {
   height: 100%;
 }
 
-.index-link{
+.index-link {
   text-decoration: none;
   color: #5C6269;
   background-color: #86973D;
@@ -96,6 +96,7 @@ footer {
   margin-top: 8px;
   padding: 15px 0;
   background-color: #86973D;
+  color: #fffeee;
   width: 30%;
   text-align: center;
   text-decoration: none;
@@ -125,13 +126,47 @@ td, th {
 tr:nth-child(even) {
   background-color: #cacaca;
 }
+
 tr:nth-child(odd) {
-  background-color:#e6e4e4;
+  background-color: #e6e4e4;
 }
 
-thead tr{
+td:last-child {
+  width: 1%;
+  padding: 0 30px;
+}
+
+thead tr {
   background-color: #5C6269 !important;
   color: #fffeee;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#rooms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.room {
+  padding: 15px;
+  min-width: 30%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.booked {
+  background-color: #d3bab3;
+}
+
+.free {
+  background-color: #cacaca;
 }
 
 .literally-nothing {

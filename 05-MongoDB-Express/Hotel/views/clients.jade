@@ -2,7 +2,7 @@ extends layout
 
 block content
     #main_clients
-        a(href="/clients")#new_client Nuevo cliente
+        a(href="/clients/register")#new_client Nuevo cliente
         hr
         table
             thead
@@ -10,9 +10,12 @@ block content
                     th DNI
                     th NOMBRE
                     th APELLIDO
+                    th
             tbody
                 each client in clients
                     tr
                         td=client.dni
                         td=client.name
                         td=client.lastname
+                        td
+                            a(href='clients/'+client._id+'/edit') Editar

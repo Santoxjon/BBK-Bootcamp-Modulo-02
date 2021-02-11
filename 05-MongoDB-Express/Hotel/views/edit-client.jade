@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+    #main_client_edit
+        h2 Editar un cliente
+        form(action='javascript:editClient()')
+            input(type="hidden" id="id" value=client._id)
+            input(type='text' value=client.dni disabled)
+            input(type='text' id='name' placeholder='Nombre' value=client.name)
+            input(type='text' id='lastname' placeholder='Apellido' value=client.lastname)
+            input(type='submit' value='Actualizar')
+    script(src="/javascripts/script.js")

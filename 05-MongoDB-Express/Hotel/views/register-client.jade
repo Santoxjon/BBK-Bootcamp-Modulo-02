@@ -1,0 +1,10 @@
+extends layout
+
+block content 
+    #main_client_register
+        h2 Registrar un nuevo cliente
+        form(action='/clients/register' method='post')
+            input(type='number' name='dni' placeholder='DNI' max="99999999")
+            input(type='text' name='name' placeholder='Nombre')
+            input(type='text' name='lastname' placeholder='Apellido')
+            input(type='submit' value='Registrar')

@@ -27,8 +27,8 @@ app.use('/rooms', roomsRouter);
 app.use('/clients', clientsRouter);
 
 // Mongo
-// MongoClient.connect("mongodb://127.0.0.1:27017", function (err, client) { // Local
-MongoClient.connect("mongodb://192.168.0.23:27017", function (err, client) { // Remote
+MongoClient.connect("mongodb://127.0.0.1:27017", function (err, client) { // Local
+// MongoClient.connect("mongodb://192.168.0.23:27017", function (err, client) { // Remote
   if (err !== null) {
     console.log(err);
   } else {
