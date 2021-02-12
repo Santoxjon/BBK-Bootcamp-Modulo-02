@@ -18,8 +18,8 @@ function editClient() {
         });
 }
 
-function checkoutRoom() {
-    let room_id = document.getElementById("room_id").value;
+function checkoutRoom(i) {
+    let room_id = document.getElementById(`room_id_${i}`).value;
     let today = new Date();
     let checkout_date = today.toISOString().substr(0, 10);
 

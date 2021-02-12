@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
           res.send({ mensaje: "error: " + err });
         } else {
           clients = data;
-          res.render('rooms', { title: 'Habitaciones', rooms: rooms, clients: clients });
+          res.render('rooms', { title: 'Habitaciones', rooms: rooms, clients: clients, index: 0, today: new Date().toISOString().substr(0, 10) });
         }
       });
     }
@@ -32,6 +32,7 @@ router.post('/book', (req, res) => {
   let room_id = new ObjectId(req.body.room);
   let client_id = new ObjectId(req.body.client);
   let checkin_date = req.body.checkin_date;
+  console.log("HABITACIÓN QUE SE OCUPARÁ -> " + room_id);
 
   req.app.locals.db.collection("room").updateOne({ "_id": room_id }, { $set: { "condition": true } }, function (err) {
     if (err != null) {
